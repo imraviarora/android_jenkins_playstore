@@ -34,9 +34,9 @@ android {
         }
         debug {
             storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'Key0'
-            keyPassword 'cafe123'
+            storePassword 'myapplication'
+            keyAlias 'key0'
+            keyPassword 'myapplication'
         }
     }
 
