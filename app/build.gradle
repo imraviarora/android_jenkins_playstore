@@ -12,6 +12,14 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        debug {
+            storeFile file('myApplication.jks')
+            storePassword 'myapplication'
+            keyAlias = 'key0'
+            keyPassword 'myapplication'
+        }
+    }
 
     buildTypes {
         release {
@@ -20,18 +28,6 @@ android {
         }
     }
 
-    signingConfigs {
-        release {
-            File fileProp = file(System.getenv('HOME') + "/.appkey")
-            if (fileProp.exists()) {
-                Properties releaseConfig = new Properties()
-                releaseConfig.load(new FileInputStream(fileProp))
-                storeFile file(System.getenv('HOME') + "/" + releaseConfig["app/myApplication.jks"])
-                storePassword releaseConfig['myapplication']
-                keyAlias releaseConfig['key0']
-                keyPassword releaseConfig['myapplication']
-            }
-        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'myapplication'
