@@ -26,10 +26,10 @@ android {
             if (fileProp.exists()) {
                 Properties releaseConfig = new Properties()
                 releaseConfig.load(new FileInputStream(fileProp))
-                storeFile file(System.getenv('HOME') + "/" + releaseConfig["KEYSTORE_FILE"])
-                storePassword releaseConfig['KEYSTORE_PWD']
-                keyAlias releaseConfig['KEY_ALIAS']
-                keyPassword releaseConfig['KEY_PASSWORD']
+                storeFile file(System.getenv('HOME') + "/" + releaseConfig["app/myApplication.jks"])
+                storePassword releaseConfig['myapplication']
+                keyAlias releaseConfig['key0']
+                keyPassword releaseConfig['myapplication']
             }
         }
         debug {
